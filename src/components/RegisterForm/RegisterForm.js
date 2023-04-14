@@ -1,8 +1,23 @@
+import { useDispatch } from 'react-redux';
+import { register } from 'redux/auth/operations';
 import styles from './RegisterForm.module.scss';
 
 export const RegisterForm = () => {
+  const dispatch = useDispatch();
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    dispatch(
+      register({
+        name: form.elements.name.value,
+        email: form.elements.email.value,
+        password: form.elements.password.value,
+      })
+    );
+  };
   return (
-    <form className={styles.form}>
+    <form className={styles.form} onSubmit={handleSubmit}>
       <label className={styles.label}>
         Name
         <input
