@@ -10,7 +10,7 @@ import Button from '@mui/material/Button';
 import BackspaceIcon from '@mui/icons-material/Backspace';
 import SaveIcon from '@mui/icons-material/Save';
 import CancelIcon from '@mui/icons-material/Cancel';
-import css from './ContactEdit.module.scss';
+import css from './ContactRedact.module.scss';
 
 export const ContactRedact = ({ contact, handleClose }) => {
   const [name, setName] = useState(contact.name);
