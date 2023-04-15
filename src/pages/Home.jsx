@@ -13,13 +13,15 @@ const styles = {
   },
   span: {
     position: 'relative',
-    top: 26,
+    top: 76,
+    right:20,
   },
   icon: {
-  width: 100,
-    height: 100,
+ 
+    height: 160,
   },
   title: {
+    
     fontWeight: 800,
     fontSize: 48,
     textAlign: 'center',
@@ -32,7 +34,7 @@ const Home = () => (
       <span style={styles.span}>
         <img src={bookIcon} alt="phonebook icon" style={styles.icon} />
       </span>
-      &nbsp; Welcome to the Phonebook!
+     Welcome to the Magic Phone book!
     </Typography>
     <Typography variant="h6" align="center">
       Please, register or log in to continue.
