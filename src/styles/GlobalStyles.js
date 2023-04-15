@@ -1,6 +1,6 @@
 import { GlobalStyles } from '@mui/material';
 
-export const homePageStyles = (
+export const GlobalStylesProvider = (
   <GlobalStyles
     styles={{
       '*': {
@@ -9,7 +9,7 @@ export const homePageStyles = (
         margin: '0',
       },
       body: {
-        backgroundImage: 'linear-gradient(to right, #00c3ff, #ffff1c)',
+        backgroundImage: 'linear-gradient(270deg, #307bce, #818a8d)',
         padding: '0 20px',
         margin: '0',
         overflowY: 'scroll',
