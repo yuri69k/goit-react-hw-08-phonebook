@@ -8,7 +8,7 @@ const styles = {
     position: 'relative',
 
     '&:hover': {
-      color: '#be4d25',
+      color: '#5252d7',
     },
 
     '&.active::after': {
@@ -16,11 +16,11 @@ const styles = {
       display: 'block',
       width: 'calc(100% - 24px)',
       height: '2px',
-      backgroundColor: '#be4d25',
+      backgroundColor: '#5252d7',
       position: 'absolute',
       bottom: '8px',
       left: '12px',
-      boxShadow: '0 0 10px 1px #be4d25',
+      boxShadow: '0 0 10px 1px #5252d7',
       opacity: 0.6,
     },
   },
