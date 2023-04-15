@@ -1,18 +1,24 @@
 import { useDispatch } from 'react-redux';
 import { logOut } from 'redux/auth/operations';
-import { useAuth } from '../../hooks';
-import styles from './UserMenu.module.scss';
+import { useAuth } from 'hooks';
+import Box from '@mui/material/Box';
+import IconButton from '@mui/material/IconButton';
+import FollowTheSignsTwoToneIcon from '@mui/icons-material/FollowTheSignsTwoTone';
+import Typography from '@mui/material/Typography';
+import Tooltip from '@mui/material/Tooltip';
 
 export const UserMenu = () => {
   const dispatch = useDispatch();
   const { user } = useAuth();
 
   return (
-    <div className={styles.wrapper}>
-      <p className={styles.username}>Welcome,{user} </p>
-      <button type="button" className={styles.button} onClick={() => dispatch(logOut())}>
-        Logout
-      </button>
-    </div>
+    <Box sx={{ display: 'flex', alignItems: 'center', gap: '18px', marginLeft: 'auto' }}>
+      <Typography variant="subtitle1">Hi {user.name}, you are logged in</Typography>
+      <Tooltip title="Logout" placement="bottom" arrow>
+        <IconButton onClick={() => dispatch(logOut())}>
+          <FollowTheSignsTwoToneIcon  />
+        </IconButton>
+      </Tooltip>
+    </Box>
   );
 };
