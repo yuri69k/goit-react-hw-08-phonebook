@@ -39,7 +39,7 @@ const App = () => {
         />
         <Route
           path={routes.contacts}
-          element={<RestrictedRoute  redirectTo={routes.login} component={<ContactsPage />} />}
+          element={<PrivateRoute redirectTo={routes.login} component={<ContactsPage />} />}
         />
         <Route path={routes.notFound} element={<Navigate to={routes.home} />} />
       </Route>
