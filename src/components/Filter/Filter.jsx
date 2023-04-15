@@ -4,11 +4,7 @@ import{selectFilter,selectContacts } from 'redux/contacts/selectors'
 import styles from './styles.module.css';
 import clearIcon from '../../images/backspace.png';
 
-// const Filter = ({ onFilterInput }) => {
-//   const [filter, setFilter] = useState('');
-//   useEffect(() => {
-//     onFilterInput(filter);
-//   }, [filter, onFilterInput]);
+
 export const Filter = () => {
   const dispatch = useDispatch();
   const filter = useSelector(selectFilter);

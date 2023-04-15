@@ -9,7 +9,7 @@ import { Notification } from 'components/Notification/Notification';
 export const Layout = () => (
   <Container maxWidth="md">
     <AppBar />
-    <Suspense fallback={<Notification message="Loading..." />}>}>
+    <Suspense fallback={<Notification message="Loading..." />}>
       <Outlet />
     </Suspense>
  </Container>
