@@ -1,55 +1,75 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectError } from 'redux/auth/selectors';
 import { register } from 'redux/auth/operations';
-import styles from './RegisterForm.module.scss';
+import Typography from '@mui/material/Typography';
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
+import { Notification } from 'components/Notification/Notification';
+import AppRegistrationIcon from '@mui/icons-material/AppRegistration';
+import css from './RegisterForm.module.scss';
 
 export const RegisterForm = () => {
+  const error = useSelector(selectError);
   const dispatch = useDispatch();
 
   const handleSubmit = e => {
     e.preventDefault();
-
     const { name, email, password } = e.target.elements;
-
     dispatch(register({ name: name.value, email: email.value, password: password.value }));
   };
+
   return (
-    <form className={styles.form} onSubmit={handleSubmit}>
-      <label className={styles.label}>
-        Name
-        <input
-          className={styles.input}
-          type="text"
+    <>
+      <form className={css.form} onSubmit={handleSubmit}>
+        <Typography variant="h5" sx={{ textAlign: 'center' }}>
+          Registration form
+        </Typography>
+        <TextField
+          label="Name"
+          variant="standard"
           name="name"
+          type="text"
           autoComplete="off"
           placeholder="Enter your name"
+          fullWidth
+          margin="normal"
         />
-      </label>
-
-      <label className={styles.label}>
-        Email
-        <input
-          className={styles.input}
-          type="email"
+        <TextField
+          label="Email"
+          variant="standard"
           name="email"
+          type="email"
           autoComplete="off"
           placeholder="Enter your email"
+          fullWidth
+          margin="normal"
         />
-      </label>
-
-      <label className={styles.label}>
-        Password
-        <input
-          className={styles.input}
-          type="password"
+        <TextField
+          label="Password"
+          variant="standard"
           name="password"
+          type="password"
           autoComplete="off"
           placeholder="Enter your password"
+          fullWidth
+          margin="normal"
         />
-      </label>
+        <Button
+          variant="contained"
+          type="submit"
+          color="primary"
+          size="large"
+          endIcon={<AppRegistrationIcon />}
+          className={css.submitButton}
+        >
+          Sign up
+        </Button>
+      </form>
 
-      <button className={styles.button} type="submit">
-        Sign up
-      </button>
-    </form>
+      {error?.response?.data?.errors?.password?.message && (
+        <Notification message="Try another password." />
+      )}
+      {error?.response?.data?.name && <Notification message={'Try another e-mail.'} />}
+    </>
   );
 };
