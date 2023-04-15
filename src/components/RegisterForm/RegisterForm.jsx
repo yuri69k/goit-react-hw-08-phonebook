@@ -7,14 +7,10 @@ export const RegisterForm = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    const form = e.currentTarget;
-    dispatch(
-      register({
-        name: form.elements.name.value,
-        email: form.elements.email.value,
-        password: form.elements.password.value,
-      })
-    );
+
+    const { name, email, password } = e.target.elements;
+
+    dispatch(register({ name: name.value, email: email.value, password: password.value }));
   };
   return (
     <form className={styles.form} onSubmit={handleSubmit}>

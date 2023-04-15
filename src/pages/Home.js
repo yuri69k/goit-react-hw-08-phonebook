@@ -27,9 +27,13 @@ const Home = () => {
     <div style={styles.container}>
       <h1 style={styles.title}>
         <span style={styles.span}>
-          <img src={phonebookIcon} alt="phonebook icon" className={styles.icon} />
+          <img
+            src={phonebookIcon}
+            alt="phonebook icon"
+            className={styles.icon}
+          />
         </span>
-        &nbsp; Welcome to the phonebook
+        &nbsp; Welcome to the Phonebook
       </h1>
     </div>
   );

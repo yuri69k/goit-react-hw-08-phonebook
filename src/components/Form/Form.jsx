@@ -7,10 +7,7 @@ import styles from './styles.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { addContact } from 'redux/contacts/operations';
 import { selectContacts} from 'redux/contacts/selectors';
-// const Form = ({ contacts, addContact }) => {
-//   const [name, setName] = useState('');
-//   const [number, setNumber] = useState('');
-//   const [isDisabled, setIsDisabled] = useState(false);
+
 export const Form = () => {
   const dispatch = useDispatch();
   const contacts = useSelector(selectContacts);
@@ -18,9 +15,9 @@ export const Form = () => {
   function handleSubmit(evt) {
     evt.preventDefault();
     const form = evt?.target;
-    const { name, phone } = form.elements;
+    const { name, number } = form.elements;
     const contactName = name.value;
-    const contactPhone = phone.value;
+    const contactNumber = number.value;
 
     if (
       !contacts?.length ||
@@ -29,12 +26,12 @@ export const Form = () => {
        dispatch(
       addContact({
         name:  contactName,
-        phone: contactPhone,
+        number: contactNumber,
       })
     );
       form.reset();
     } else {
-      Notify.warning(`${contactName} ${ contactPhone} is already in contacts.`);
+      Notify.warning(`${contactName} ${ contactNumber} is already in contacts.`);
       form.reset();    
     }
   };
@@ -54,14 +51,14 @@ export const Form = () => {
         />
       </label>
       <label>
-        phone:
+        number:
         <input
           type="tel"
           placeholder="+380 33 333 3333"
-          className={styles.phoneInputCountry}
+          className={styles.numberInputCountry}
           pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-          title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"         
-          name="phone"          
+          title="number number must be digits and can contain spaces, dashes, parentheses and can start with +"         
+          name="number"          
           required
         />
       </label>

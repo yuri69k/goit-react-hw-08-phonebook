@@ -1,8 +1,19 @@
+import { useDispatch } from 'react-redux';
+import { logIn } from 'redux/auth/operations';
 import styles from './LoginForm.module.scss';
 
 export const LoginForm = () => {
+    const dispatch = useDispatch();
+
+  const handleSubmit = e => {
+    e.preventDefault();
+
+    const { email, password } = e.target.elements;
+
+    dispatch(logIn({ email: email.value, password: password.value }));
+  };
   return (
-    <form className={styles.form}>
+    <form className={styles.form} onSubmit={handleSubmit}>
       <div className={styles.inputs}>
         <label className={styles.label}>
           Email
