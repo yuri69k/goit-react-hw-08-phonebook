@@ -31,9 +31,9 @@ let theme = createTheme({
           color: '#441155',
 
           '&:hover': {
-            backgroundColor: 'rgba(190, 77, 37, 0.2)',
+            backgroundColor: 'rgba(85, 34, 85, 0.133)',
             boxShadow:
-              'inset 0 0 3px 3px rgba(153, 37, 190, 0.1), 0 0 3px 3px rgba(153, 37, 190, 0.1)',
+              'inset 0 0 3px 3px rgba(60, 23, 60, 0.133), 0 0 3px 3px rgba(60, 23, 60, 0.133)',
           },
         },
       },

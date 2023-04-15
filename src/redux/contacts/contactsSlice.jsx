@@ -26,16 +26,16 @@ const contactsSlice = createSlice({
         return b.name.localeCompare(a.name);
       });
     },
-    sortContactsByDate: state => {
-      state.items.sort((a, b) => {
-        return a.createdAt.localeCompare(b.createdAt);
-      });
-    },
-    sortContactsByDateReverse: state => {
-      state.items.sort((a, b) => {
-        return b.createdAt.localeCompare(a.createdAt);
-      });
-    },
+    // sortContactsByDate: state => {
+    //   state.items.sort((a, b) => {
+    //     return a.createdAt.localeCompare(b.createdAt);
+    //   });
+    // },
+    // sortContactsByDateReverse: state => {
+    //   state.items.sort((a, b) => {
+    //     return b.createdAt.localeCompare(a.createdAt);
+    //   });
+    // },
     deleteAllContacts: state => {
       state.items.splice(0, state.items.length);
     }
@@ -96,8 +96,8 @@ export const {
    deleteAllContacts,
   sortContactsAz,
   sortContactsAzReverse,
-  sortContactsByDate,
-  sortContactsByDateReverse,
+  // sortContactsByDate,
+  // sortContactsByDateReverse,
 } = contactsSlice.actions;
 export const contactsReducer = contactsSlice.reducer;
 

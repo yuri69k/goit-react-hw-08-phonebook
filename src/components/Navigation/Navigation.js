@@ -11,13 +11,17 @@ const styles = {
     marginLeft: '15px',
     position: 'relative',
 
+    '&:hover': {
+      color: '#5252d7',
+    },
+
     '&.active::after': {
       content: '""',
       display: 'block',
       height: '40px',
       width: '40px',
       borderRadius: '50%',
-      backgroundColor: '#5252d7',
+      backgroundColor: ' #5252d7',
       position: 'absolute',
       bottom: '0',
       left: '0',

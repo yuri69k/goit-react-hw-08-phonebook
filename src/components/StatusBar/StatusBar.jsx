@@ -2,13 +2,12 @@ import { useSelector, useDispatch } from 'react-redux';
 import { selectContactsCount} from 'redux/contacts/selectors';
 import { sortContactsAz,deleteAllContacts,
   sortContactsAzReverse,
-  sortContactsByDate,
-  sortContactsByDateReverse } from '../../redux/contacts/contactsSlice';
+ } from '../../redux/contacts/contactsSlice';
 import { Filter } from '../Filter/Filter';
-import css from './StatusBar.module.css';
+import styles from './StatusBar.module.css';
 import sortIcon from '../../images/sort-az.png';
 import trashIcon from '../../images/trash.png';
-import sortDateIcon from '../../images/sort-date.png'
+
 import { useState } from 'react';
 
 export const StatusBar = () => {
@@ -30,47 +29,39 @@ export const StatusBar = () => {
     }
   };
 
-  const handleSortDateContacts = () => {
-    if (sorted.sortedByDate) {
-      dispatch(sortContactsByDateReverse());
-      setSorted({ sortedAlphabetically: false, sortedByDate: false });
-    } else {
-      dispatch(sortContactsByDate());
-      setSorted({ sortedAlphabetically: false, sortedByDate: true });
-    }
-  };
+ 
 
   return (
-    <div className={css.StatusBar}>
-      <div className={css.infoSection}>
-        <div className={css.counter}>
+    <div className={styles.StatusBar}>
+      <div className={styles.infoSection}>
+        <div className={styles.counter}>
          
-          <p className={css.counter__data}>
+          <p className={styles.counter__data}>
              You have {total} {total === 1 ? 'contact' : 'contacts'}
           </p>
         </div>
         {total > 0 && (
-          <div className={css.buttons}>
-            <button className={css.button_sort}
+          <div className={styles.buttons}>
+            <button className={styles.button_sort}
               type="button"
               title={sorted.sortedAlphabetically ? 'Sort by name Z-A' : 'Sort by name A-Z'}
               onClick={handleSortAzContacts}>
-              <img src={sortIcon} alt="sort icon" className={css.icon} />
+              <img src={sortIcon} alt="sort icon" className={styles.icon} />
             </button>
-            <button className={css.button_delete}
+            <button className={styles.button_delete}
               type="button"
               title='Delete All Contacts'
               onClick={handleDeleteAllContacts}>
-              <img src={trashIcon} alt="trash icon" className={css.icon} />
+              <img src={trashIcon} alt="trash icon" className={styles.icon} />
             </button>
-            <button
-              className={css.button_sort}
+            {/* <button
+              className={styles.button_sort}
               type="button"              
               title={sorted.sortedByDate ? 'Sort by date added reverse' : 'Sort by date added'}
               onClick={handleSortDateContacts}
             >
-              <img src={ sortDateIcon} alt="sort date icon" className={css.icon} />
-            </button>
+              <img src={ sortDateIcon} alt="sort date icon" className={styles.icon} />
+            </button> */}
           </div>
         )}
       </div>
