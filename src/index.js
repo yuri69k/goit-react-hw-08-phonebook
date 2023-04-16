@@ -9,6 +9,7 @@ import { ThemeProvider } from '@mui/material/styles';
 import './index.css';
 import { GlobalStylesProvider } from './styles/GlobalStyles';
 import theme from './styles/Theme';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

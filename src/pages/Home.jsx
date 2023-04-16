@@ -1,7 +1,7 @@
 import bookIcon from '../images/phonebook.png';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-
+import Footer from 'components/Footer';
 const styles = {
   container: {
   position: 'absolute',
@@ -29,17 +29,18 @@ const styles = {
 };
 
 const Home = () => (
-  <Box style={styles.container}>
+  <><Box style={styles.container}>
     <Typography variant="h3" align="center" mb={8}>
       <span style={styles.span}>
         <img src={bookIcon} alt="phonebook icon" style={styles.icon} />
       </span>
-     Welcome to the Magic Phone book!
+      Welcome to the Magic Phone book!
     </Typography>
     <Typography variant="h6" align="center">
       Please, register or log in to continue.
     </Typography>
-  </Box>
+
+  </Box><Footer /></>
 );
 
 export default Home;
