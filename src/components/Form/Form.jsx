@@ -17,12 +17,12 @@ export const Form = () => {
     evt.preventDefault();
     const form = evt?.target;
     const { name, number } = form.elements;
-    const contactName = name.value;
-    const contactNumber = number.value;
+    const contactName = name.value.trim();
+    const contactNumber = number.value.trim();
 
     if (
       !contacts?.length ||
-      !contacts.some(contact => contact.name === contactName)
+      !contacts.some(contact =>  contact.name.toLowerCase().trim() === contactName.toLowerCase())
     ) {     
        dispatch(
       addContact({
