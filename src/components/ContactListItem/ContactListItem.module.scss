@@ -31,12 +31,9 @@
 }
 
 .item:hover {
-  background: linear-gradient(
-    90deg,
-    rgba(240, 240, 240, 0.9) 0%,
-    rgba(0, 212, 255, 0.2) 10%,
-    rgba(45, 45, 206, 0.3) 50%,
-    rgba(0, 212, 255, 0.2) 90%,
-    rgba(240, 240, 240, 0.9) 100%
+  background: radial-gradient(
+    circle,
+    rgba(145, 158, 207, 0.9893207282913166) 81%,
+    rgba(187, 167, 205, 0.9473039215686274) 100%
   );
 }
